@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #F8FAFC; /* Light gray/white */
+  --color-brand-bg-card: #FFFFFF; /* White cards */
+  --color-brand-accent: #00A6B2; /* Slightly darker cyan for contrast */
+  --color-brand-accent-hover: #008A94;
+  --color-brand-text: #0F172A; /* Dark Slate for text */
+  --color-brand-muted: #475569; /* Slate for muted text */
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.group:hover .animate-marquee {
+  animation-play-state: paused;
+}
