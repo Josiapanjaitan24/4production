@@ -15,34 +15,34 @@ const Team = ({ onClose }) => {
 
   const teamMembers = [
     {
-      name: "Gungde",
-      role: "Founder & Creative Director",
+      name: "Agung",
+      role: "Founder & Business Development",
       image: gungdeImg,
-      description: "Ahli dalam strategi digital dan kreativitas visual yang membawa ide menjadi kenyataan."
+      description: "Bertanggung jawab mencari klien baru, membangun relasi bisnis, serta mengatur arah dan perkembangan bisnis agar terus berkembang secara stabil."
     },
     {
       name: "Josia",
-      role: "Lead Developer",
+      role: "Web Developer",
       image: josiaImg,
-      description: "Spesialis dalam pengembangan web dan teknologi yang inovatif untuk solusi digital."
+      description: "Bertanggung jawab membangun website yang responsive dan fungsional, mulai dari landing page hingga company profile, serta memastikan website berjalan dengan baik setelah launch."
     },
     {
-      name: "Wen",
-      role: "Content Strategist",
+      name: "Daffa",
+      role: "Content Strategist & Copywriter",
       image: wenImg,
-      description: "Master dalam crafting konten yang engaging dan storytelling yang powerful."
+      description: "Bertanggung jawab menyusun strategi konten, membuat copywriting, mengatur alur produksi konten, serta memastikan hasil konten sesuai dengan kualitas dan tujuan brand klien."
     },
     {
       name: "Malik",
-      role: "Bagian Anal",
+      role: "Visual & Creative Designer",
       image: malikImg,
-      description: "ora tau"
+      description: "Bertanggung jawab membuat desain visual untuk kebutuhan media sosial dan website, sekaligus menjaga tampilan brand klien tetap konsisten dan menarik."
     },
     {
-      name: "Pairus",
-      role: "Social Media Manager",
+      name: "Fairuuz",
+      role: "Content Strategist & Copywriter",
       image: pairusImg,
-      description: "Expert dalam manajemen media sosial dan building community yang kuat."
+      description: "Bertanggung jawab membangun website yang responsive dan fungsional, mulai dari landing page hingga company profile, serta memastikan website berjalan dengan baik setelah launch."
     }
   ];
 

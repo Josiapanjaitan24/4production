@@ -38,10 +38,10 @@ const Footer = () => {
           {/* Brand Info */}
           <div className="md:col-span-12 lg:col-span-5">
             <div className="flex items-center gap-2 mb-6">
-              <img 
-                src={isDarkMode ? logoDark : logoLight} 
-                alt="4Production Logo" 
-                className="h-10 object-contain" 
+              <img
+                src={isDarkMode ? logoDark : logoLight}
+                alt="4Production Logo"
+                className="h-10 object-contain"
               />
             </div>
             <p className="text-brand-muted leading-relaxed mb-8 max-w-xs">
@@ -87,11 +87,11 @@ const Footer = () => {
             <ul className="space-y-5 text-brand-text/80 dark:text-brand-muted">
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 opacity-70 shrink-0" />
-                <a href="mailto:hello@4production.id" className="hover:text-brand-accent transition-colors">hello@4production.id</a>
+                <a href="mailto:productioniddd04@gmail.com.id" className="hover:text-brand-accent transition-colors">productioniddd04@gmail.com.id</a>
               </li>
               <li className="flex items-center gap-3">
                 <WhatsAppIcon className="w-5 h-5 opacity-70 shrink-0" />
-                <a href="https://wa.me/6281234567890" className="hover:text-brand-accent transition-colors">+62 812-3456-7890</a>
+                <a href="https://wa.me/62881037387241" className="hover:text-brand-accent transition-colors">+62 812-3456-7890</a>
               </li>
               <li className="flex items-center gap-3">
                 <InstagramIcon className="w-5 h-5 opacity-70 shrink-0" />
