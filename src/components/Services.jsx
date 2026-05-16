@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layout, Smartphone, Share2, PenTool } from 'lucide-react';
+import { Globe, Smartphone, PenTool } from 'lucide-react';
 
 const Services = ({ onSelectService }) => {
   const services = [
@@ -8,26 +8,14 @@ const Services = ({ onSelectService }) => {
       title: "Web Development",
       description: "Website modern, responsif, dan cepat yang dirancang khusus untuk meningkatkan konversi dan kredibilitas bisnis Anda.",
       detailedDescription: "Di era digital, website adalah etalase utama bisnis Anda. Kami membangun website custom dengan teknologi terkini (React, Next.js, Vite) yang tidak hanya tampil memukau tetapi juga sangat cepat dan responsif di semua perangkat.",
-      icon: <Layout className="w-8 h-8 text-brand-accent" />
+      icon: <Globe className="w-8 h-8 text-brand-accent" />
     },
     {
       title: "Social Media Management",
       description: "Pengelolaan akun media sosial secara profesional untuk meningkatkan engagement dan menjangkau audiens yang tepat.",
       detailedDescription: "Kembangkan audiens yang setia dan berinteraksi aktif dengan brand Anda. Kami menangani riset hashtag, penjadwalan konten, interaksi dengan followers, hingga pelaporan metrik pertumbuhan akun.",
-      icon: <Share2 className="w-8 h-8 text-brand-accent" />
-    },
-    {
-      title: "Content Creation",
-      description: "Desain visual kreatif dan copywriting memikat yang menceritakan nilai brand Anda kepada dunia.",
-      detailedDescription: "Visual yang mencolok dan teks yang meyakinkan adalah kunci menghentikan scroll pengguna. Kami memproduksi foto, grafis, animasi, dan video singkat yang dirancang khusus untuk viralitas dan brand awareness.",
-      icon: <PenTool className="w-8 h-8 text-brand-accent" />
-    },
-    {
-      title: "Digital Strategy",
-      description: "Perencanaan strategi digital komprehensif untuk memastikan setiap langkah marketing Anda memberikan ROI maksimal.",
-      detailedDescription: "Berhenti membuang budget marketing tanpa hasil yang jelas. Kami menyusun strategi end-to-end, dari pemilihan platform yang tepat, funnel konversi, hingga optimasi iklan berbayar untuk memastikan bisnis Anda bertumbuh.",
       icon: <Smartphone className="w-8 h-8 text-brand-accent" />
-    }
+    },
   ];
 
   return (

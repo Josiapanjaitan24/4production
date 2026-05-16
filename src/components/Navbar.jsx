@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
-import heroLogo from '../assets/hero-section.png';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import logoDark from '../assets/hero_section_gelap.png';
+import logoLight from '../assets/hero_section_terang.png';
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const { isDarkMode, toggleTheme } = useTheme();
 
   // Efek untuk mendeteksi scroll agar background sedikit lebih gelap jika di-scroll (opsional untuk keterbacaan)
   useEffect(() => {
@@ -26,26 +29,35 @@ const Navbar = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 transition-all duration-300 rounded-full px-6 py-4 flex items-center justify-between ${scrolled || isOpen
-            ? 'bg-brand-bg-card/90 backdrop-blur-md border border-black/5 shadow-lg'
-            : 'bg-transparent backdrop-blur-sm border border-transparent'
+            ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border border-black/10 dark:border-white/10 shadow-lg'
+            : 'bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-sm'
           }`}
       >
         {/* Logo */}
         <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
-          <img src={heroLogo} alt="4production Logo" className="h-10 object-contain" />
+          <img src={isDarkMode ? logoDark : logoLight} alt="4production Logo" className="h-10 object-contain transition-opacity duration-300" />
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 text-sm font-medium">
           <a href="#beranda" className="text-brand-text hover:text-brand-accent transition-colors">Beranda</a>
           <a href="#tentang" className="text-brand-muted hover:text-brand-accent transition-colors">Tentang</a>
+          <a href="#why-us" className="text-brand-muted hover:text-brand-accent transition-colors">Why Us</a>
           <a href="#layanan" className="text-brand-muted hover:text-brand-accent transition-colors">Layanan</a>
           <a href="#portfolio" className="text-brand-muted hover:text-brand-accent transition-colors">Portfolio</a>
           <a href="#kontak" className="text-brand-muted hover:text-brand-accent transition-colors">Kontak</a>
         </div>
 
-        {/* CTA Button */}
-        <div className="hidden md:block">
+        {/* Right Controls */}
+        <div className="hidden md:flex items-center gap-4">
+          <button 
+            onClick={toggleTheme} 
+            className="p-2 rounded-full text-brand-text hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+          >
+            {isDarkMode ? <Sun className="w-5 h-5 text-brand-accent" /> : <Moon className="w-5 h-5" />}
+          </button>
+          
+          {/* CTA Button */}
           <motion.a
             href="#kontak"
             whileTap={{ scale: 0.95 }}
@@ -55,13 +67,21 @@ const Navbar = () => {
           </motion.a>
         </div>
 
-        {/* Mobile Menu Icon */}
-        <button
-          className="md:hidden text-brand-text focus:outline-none p-2"
-          onClick={toggleMenu}
-        >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Mobile Controls */}
+        <div className="flex md:hidden items-center gap-2">
+          <button 
+            onClick={toggleTheme} 
+            className="p-2 rounded-full text-brand-text hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+          >
+            {isDarkMode ? <Sun className="w-5 h-5 text-brand-accent" /> : <Moon className="w-5 h-5" />}
+          </button>
+          <button
+            className="text-brand-text focus:outline-none p-2"
+            onClick={toggleMenu}
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </motion.nav>
 
       {/* Mobile Menu Overlay */}
@@ -76,6 +96,7 @@ const Navbar = () => {
           >
             <a href="#beranda" onClick={closeMenu} className="text-brand-text text-sm font-medium py-2 border-b border-black/5 hover:text-brand-accent">Beranda</a>
             <a href="#tentang" onClick={closeMenu} className="text-brand-muted text-sm font-medium py-2 border-b border-black/5 hover:text-brand-accent">Tentang</a>
+            <a href="#why-us" onClick={closeMenu} className="text-brand-muted text-sm font-medium py-2 border-b border-black/5 hover:text-brand-accent">Why Us</a>
             <a href="#layanan" onClick={closeMenu} className="text-brand-muted text-sm font-medium py-2 border-b border-black/5 hover:text-brand-accent">Layanan</a>
             <a href="#portfolio" onClick={closeMenu} className="text-brand-muted text-sm font-medium py-2 border-b border-black/5 hover:text-brand-accent">Portfolio</a>
             <a href="#kontak" onClick={closeMenu} className="text-brand-muted text-sm font-medium py-2 hover:text-brand-accent">Kontak</a>
