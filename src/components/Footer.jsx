@@ -51,7 +51,7 @@ const Footer = () => {
               <a href="https://instagram.com/4.production.id" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-xl border border-black/10 dark:border-white/10 flex items-center justify-center text-brand-muted hover:text-brand-accent hover:border-brand-accent transition-colors">
                 <InstagramIcon className="w-5 h-5" />
               </a>
-              <a href="https://wa.me/6285173339029" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-xl border border-black/10 dark:border-white/10 flex items-center justify-center text-brand-muted hover:text-brand-accent hover:border-brand-accent transition-colors">
+              <a href="https://wa.me/62881037387241" target="_blank" rel="noopener noreferrer" className="w-11 h-11 rounded-xl border border-black/10 dark:border-white/10 flex items-center justify-center text-brand-muted hover:text-brand-accent hover:border-brand-accent transition-colors">
                 <WhatsAppIcon className="w-5 h-5" />
               </a>
               <a href="#" className="w-11 h-11 rounded-xl border border-black/10 dark:border-white/10 flex items-center justify-center text-brand-muted hover:text-brand-accent hover:border-brand-accent transition-colors">
@@ -91,11 +91,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <WhatsAppIcon className="w-5 h-5 opacity-70 shrink-0" />
-                <a href="https://wa.me/62881037387241" className="hover:text-brand-accent transition-colors">+62 812-3456-7890</a>
+                <a href="https://wa.me/62881037387241" className="hover:text-brand-accent transition-colors">+62 881-0373-87241</a>
               </li>
               <li className="flex items-center gap-3">
                 <InstagramIcon className="w-5 h-5 opacity-70 shrink-0" />
-                <a href="https://instagram.com/4.production.id" className="hover:text-brand-accent transition-colors">@4production</a>
+                <a href="https://www.instagram.com/4production.id?igsh=MXR1ZjhlNDZzYnUzdw==" className="hover:text-brand-accent transition-colors">4production.id</a>
               </li>
             </ul>
           </div>
