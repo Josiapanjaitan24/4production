@@ -15,6 +15,8 @@ import Footer from './components/Footer';
 import WhyUs from './components/WhyUs';
 import HowWeWork from './components/HowWeWork';
 
+import { Helmet } from 'react-helmet-async'
+
 function App() {
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [showTeam, setShowTeam] = useState(false);
@@ -217,141 +219,179 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <div id="beranda">
-        <Hero />
-      </div>
+    <>
+      <Helmet>
+        <title>
+          4Production - Website & Social Media Agency
+        </title>
 
-      <About onShowTeam={() => setShowTeam(true)} />
-      <WhyUs />
+        <meta
+          name="description"
+          content="Jasa pembuatan website, landing page, company profile, dan social media management untuk bisnis modern."
+        />
 
-      <Portfolio onViewAll={() => setShowAllProjects(true)} />
-      <Services onSelectService={setSelectedService} />
+        <meta
+          name="keywords"
+          content="jasa website, landing page, company profile, social media management"
+        />
 
-      <section id="harga" className="py-20 px-4 max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-brand-text mb-4">Investasi Transparan untuk <span className="text-brand-accent">Hasil Maksimal</span></h2>
-          <p className="text-brand-muted text-lg max-w-2xl mx-auto">Pilih layanan yang ingin Anda eksplor untuk menemukan paket terbaik sesuai kebutuhan bisnis Anda.</p>
+        <meta
+          property="og:title"
+          content="4Production"
+        />
+
+        <meta
+          property="og:description"
+          content="Website dan social media untuk bisnis modern."
+        />
+
+        <meta
+          property="og:type"
+          content="website"
+        />
+
+        <meta
+          property="og:url"
+          content="https://4production.vercel.app/"
+        />
+      </Helmet>
+
+      <div className="min-h-screen">
+        <Navbar />
+        <div id="beranda">
+          <Hero />
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-4 md:gap-6 pb-6 md:pb-0 snap-x snap-mandatory hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
-            {categoryTiles.map((category) => {
-              const CategoryIcon = category.icon;
-              const isActive = activeCategory === category.id;
+        <About onShowTeam={() => setShowTeam(true)} />
+        <WhyUs />
 
-              return (
-                <motion.button
-                  key={category.id}
-                  type="button"
-                  onClick={() => setActiveCategory(activeCategory === category.id ? null : category.id)}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.35, ease: 'easeInOut' }}
-                  className={`group shrink-0 w-[85vw] md:w-auto snap-center relative rounded-2xl border p-6 md:p-8 text-left overflow-hidden transition-all duration-500 ease-in-out ${isActive ? 'border-brand-accent bg-brand-accent/10 text-brand-text shadow-lg shadow-brand-accent/20 dark:bg-brand-accent/20' : 'border-black/5 bg-brand-bg-card text-brand-muted shadow-sm hover:border-brand-accent/30 hover:shadow-md dark:border-white/5'}`}
-                >
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl transition-colors ${isActive ? 'bg-brand-accent text-white shadow-md shadow-brand-accent/30' : 'bg-brand-accent/10 text-brand-accent group-hover:bg-brand-accent/20'}`}>
-                      <CategoryIcon className="h-6 w-6" />
-                    </span>
-                    <div>
-                      <h3 className="text-xl font-semibold">{category.title}</h3>
-                      <p className="text-sm text-brand-muted mt-1">{category.subtitle}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className={`text-sm font-semibold ${isActive ? 'text-cyan-200' : 'text-slate-500'}`}>Pilih kategori</span>
-                    <span className={`inline-flex h-10 w-10 items-center justify-center rounded-full border ${isActive ? 'border-cyan-300 bg-cyan-300/10 text-cyan-300' : 'border-slate-200 bg-white text-slate-500'}`}>›</span>
-                  </div>
-                </motion.button>
-              );
-            })}
+        <Portfolio onViewAll={() => setShowAllProjects(true)} />
+        <Services onSelectService={setSelectedService} />
+
+        <section id="harga" className="py-20 px-4 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-text mb-4">Investasi Transparan untuk <span className="text-brand-accent">Hasil Maksimal</span></h2>
+            <p className="text-brand-muted text-lg max-w-2xl mx-auto">Pilih layanan yang ingin Anda eksplor untuk menemukan paket terbaik sesuai kebutuhan bisnis Anda.</p>
           </div>
 
-          <div className="mt-12 mb-8 text-center max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-4 md:gap-6 pb-6 md:pb-0 snap-x snap-mandatory hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
+              {categoryTiles.map((category) => {
+                const CategoryIcon = category.icon;
+                const isActive = activeCategory === category.id;
+
+                return (
+                  <motion.button
+                    key={category.id}
+                    type="button"
+                    onClick={() => setActiveCategory(activeCategory === category.id ? null : category.id)}
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.35, ease: 'easeInOut' }}
+                    className={`group shrink-0 w-[85vw] md:w-auto snap-center relative rounded-2xl border p-6 md:p-8 text-left overflow-hidden transition-all duration-500 ease-in-out ${isActive ? 'border-brand-accent bg-brand-accent/10 text-brand-text shadow-lg shadow-brand-accent/20 dark:bg-brand-accent/20' : 'border-black/5 bg-brand-bg-card text-brand-muted shadow-sm hover:border-brand-accent/30 hover:shadow-md dark:border-white/5'}`}
+                  >
+                    <div className="flex items-center gap-4 mb-4">
+                      <span className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl transition-colors ${isActive ? 'bg-brand-accent text-white shadow-md shadow-brand-accent/30' : 'bg-brand-accent/10 text-brand-accent group-hover:bg-brand-accent/20'}`}>
+                        <CategoryIcon className="h-6 w-6" />
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold">{category.title}</h3>
+                        <p className="text-sm text-brand-muted mt-1">{category.subtitle}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className={`text-sm font-semibold ${isActive ? 'text-cyan-200' : 'text-slate-500'}`}>Pilih kategori</span>
+                      <span className={`inline-flex h-10 w-10 items-center justify-center rounded-full border ${isActive ? 'border-cyan-300 bg-cyan-300/10 text-cyan-300' : 'border-slate-200 bg-white text-slate-500'}`}>›</span>
+                    </div>
+                  </motion.button>
+                );
+              })}
+            </div>
+
+            <div className="mt-12 mb-8 text-center max-w-4xl mx-auto">
+              <AnimatePresence mode="wait">
+                {activeCategory ? (
+                  <motion.div
+                    key={activeCategory}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-4"
+                  >
+                    {categoryTiles.find(c => c.id === activeCategory)?.description.split('\n\n').map((paragraph, idx) => (
+                      <p key={idx} className="text-brand-muted text-base md:text-lg text-left md:text-center leading-relaxed">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="default"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <p className="text-brand-muted text-base md:text-lg">
+                      Pilih layanan yang ingin Anda eksplor untuk melihat paket terbaik.
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             <AnimatePresence mode="wait">
-              {activeCategory ? (
+              {activeCategory && (
                 <motion.div
                   key={activeCategory}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-4"
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4, ease: 'easeInOut' }}
+                  className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10"
                 >
-                  {categoryTiles.find(c => c.id === activeCategory)?.description.split('\n\n').map((paragraph, idx) => (
-                    <p key={idx} className="text-brand-muted text-base md:text-lg text-left md:text-center leading-relaxed">
-                      {paragraph}
-                    </p>
+                  {categoryPackages[activeCategory].map((plan, index) => (
+                    <motion.div
+                      key={plan.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.1, ease: 'easeInOut' }}
+                      className="rounded-3xl"
+                    >
+                      <PricingCard
+                        {...plan}
+                        onSelect={(title) => {
+                          const msg = encodeURIComponent(`Halo 4Production! Saya tertarik dengan paket ${title}. Boleh diskusi lebih lanjut?`);
+                          window.open(`https://wa.me/6285173339029?text=${msg}`, '_blank');
+                        }}
+                      />
+                    </motion.div>
                   ))}
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="default"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <p className="text-brand-muted text-base md:text-lg">
-                    Pilih layanan yang ingin Anda eksplor untuk melihat paket terbaik.
-                  </p>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
+        </section>
 
-          <AnimatePresence mode="wait">
-            {activeCategory && (
-              <motion.div
-                key={activeCategory}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4, ease: 'easeInOut' }}
-                className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10"
-              >
-                {categoryPackages[activeCategory].map((plan, index) => (
-                  <motion.div
-                    key={plan.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1, ease: 'easeInOut' }}
-                    className="rounded-3xl"
-                  >
-                    <PricingCard
-                      {...plan}
-                      onSelect={(title) => {
-                        const msg = encodeURIComponent(`Halo 4Production! Saya tertarik dengan paket ${title}. Boleh diskusi lebih lanjut?`);
-                        window.open(`https://wa.me/6285173339029?text=${msg}`, '_blank');
-                      }}
-                    />
-                  </motion.div>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </section>
+        <HowWeWork />
 
-      <HowWeWork />
+        <Contact selectedOption={contactService} />
 
-      <Contact selectedOption={contactService} />
+        <Footer />
 
-      <Footer />
-
-      <AnimatePresence>
-        {showAllProjects && (
-          <AllProjects onClose={() => setShowAllProjects(false)} />
-        )}
-        {showTeam && (
-          <Team onClose={() => setShowTeam(false)} />
-        )}
-        {selectedService && (
-          <ServiceDetail service={selectedService} onClose={() => setSelectedService(null)} />
-        )}
-      </AnimatePresence>
-    </div>
+        <AnimatePresence>
+          {showAllProjects && (
+            <AllProjects onClose={() => setShowAllProjects(false)} />
+          )}
+          {showTeam && (
+            <Team onClose={() => setShowTeam(false)} />
+          )}
+          {selectedService && (
+            <ServiceDetail service={selectedService} onClose={() => setSelectedService(null)} />
+          )}
+        </AnimatePresence>
+      </div>
+    </>
   )
 }
 
